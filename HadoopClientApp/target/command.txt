@@ -1,0 +1,1 @@
+pig -param input=inputlocation -param output=outputlocation task1.pig
