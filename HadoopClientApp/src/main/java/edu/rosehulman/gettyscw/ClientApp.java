@@ -655,7 +655,7 @@ public class ClientApp extends JFrame {
 			String tableName = "testset";
 			ResultSet res;
 
-			while (length < 10) {
+			while (length < 8) {
 				length++;
 				String sql = "select secondword from " + tableName + " where year='" + qyear + "' AND firstword='"
 						+ last + "'";
