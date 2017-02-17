@@ -654,9 +654,12 @@ public class ClientApp extends JFrame {
 
 			String tableName = "testset";
 			ResultSet res;
-			int count =0;
+			int count = 0;
 			while (length < 8) {
-				
+				if (count == 8) {
+					count = 0;
+				}
+
 				length++;
 				String sql = "select secondword from " + tableName + " where year='" + qyear + "' AND firstword='"
 						+ last + "'";
@@ -665,15 +668,16 @@ public class ClientApp extends JFrame {
 				System.out.println("Executed");
 				res.next();
 				last = res.getString(1);
-				if (count == 3){
+				if (count == 3) {
 					result += last + ", ";
-				}
-				if (count == 7){
+				} else if (count == 7) {
 					result += last + ".";
+				} else {
+					result += last + " ";
 				}
-				result += last + " ";
 				System.out.println(last);
 				System.out.println(result);
+				count++;
 
 			}
 			con.close();
